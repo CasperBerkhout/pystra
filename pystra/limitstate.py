@@ -109,7 +109,7 @@ def computeLimitStateFunction(x, stochastic_model, expression):
         for c, val in constants.items():
             globals()[c] = val * np.ones(nc)
         G = eval(expression)[0]
-    elif isinstance(expression, types.FunctionType):
+    elif isinstance(expression, types.FunctionType or types.MethodType):
         # function expression, recommended to use
         inpdict = dict()
         for i, var in enumerate(variables):
